@@ -9,6 +9,10 @@ import cors from "cors";
 import ProductRoutes from "./routes/ProductRoutes.js";
 import CategoryRoutes from "./routes/CategoryRoutes.js";
 import Path from "path";
+import { fileURLToPath } from "url";
+
+
+
 //rest object
 const app = express();
 // configure env
@@ -17,6 +21,13 @@ dotenv.config();
 
 // db configu
 connectdb();
+
+//es6module fix
+const __filename=fileURLToPath(import.meta.url);
+const __dirname=path.dirname(__filename);
+
+
+
 //middleware
 app.use(express.json());
 app.use(morgan("dev"));
